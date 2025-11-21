@@ -1,0 +1,417 @@
+/* 1. BENDRI NUSTATYMAI IR TIPOGRAFIJA
+   ----------------------------------- */
+
+/* importuoju sriftus is google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&amp;family=DM+Sans:wght@400;500;700&amp;display=swap');
+
+:root {
+  --dj-bg-light: #f3f4f6;         /* sviesus fonas */
+  --dj-bg-card: #ffffff;          /* korteliu fonas */
+  --dj-primary: #2563eb;          /* pagrindine melyna spalva */
+  --dj-primary-soft: #dbeafe;     /* antrine melyna spalva */
+  --dj-accent: #f97316;           /* akcentine oranzine spalva */
+  --dj-text-main: #0f172a;        /* pagrindinio teksto spalva */
+  --dj-text-muted: #6b7280;       /* antrinis tekstas */
+  --dj-border-soft: #e5e7eb;      /* remeliu spalva */
+  --dj-shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.12);
+}
+
+body {
+  font-family: "Nunito", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--dj-text-main);
+  background-color: #f9fafb;
+}
+
+/* antrasciu sriftai ir stiliai */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "DM Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--dj-text-main);
+  letter-spacing: 0.03em;
+  line-height: 1.2;
+  margin-bottom: 0.6em;
+}
+
+h1 {
+  font-size: 2.6rem;
+  font-weight: 800;
+  color: var(--dj-primary);
+}
+
+h2 {
+  font-size: 2.1rem;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+h4 {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+h5 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+h6 {
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--dj-text-muted);
+}
+
+p {
+  color: var(--dj-text-main);
+  line-height: 1.7;
+}
+
+.lead {
+  font-size: 1.05rem;
+}
+
+/*NUORODOS IR MYGTUKAI*/
+
+/* Nuorodos */
+a {
+  color: var(--dj-primary);
+  text-decoration: none;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+  text-decoration-color: transparent;
+}
+
+a:hover {
+  color: var(--dj-accent);
+  text-decoration: underline;
+  text-decoration-color: var(--dj-accent);
+}
+
+/*Pagrindiniai mygtukai*/
+.btn,
+.btn-primary {
+  border-radius: 999px;
+  padding: 0.6rem 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  background: var(--dj-primary);
+  border-color: var(--dj-primary);
+  color: #ffffff;
+  box-shadow: 0 12px 30px rgba(37, 99, 235, 0.45);
+  transition: background 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.btn:hover,
+.btn-primary:hover {
+  background: #1d4ed8;
+  border-color: #1d4ed8;
+  transform: translateY(-1px);
+  box-shadow: 0 18px 40px rgba(37, 99, 235, 0.55);
+  color: #ffffff;
+}
+
+.btn:active,
+.btn-primary:active {
+  background: #1e40af;
+  border-color: #1e40af;
+  transform: translateY(0);
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.45);
+}
+
+/*Outline tipo mygtukas*/
+.btn-outline-primary {
+  border-radius: 999px;
+  padding: 0.6rem 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  background: transparent;
+  border-color: var(--dj-primary);
+  color: var(--dj-primary);
+  box-shadow: none;
+}
+
+.btn-outline-primary:hover {
+  background: var(--dj-primary-soft);
+  color: var(--dj-primary);
+  border-color: var(--dj-primary);
+}
+
+.btn-outline-primary:active {
+  background: #bfdbfe;
+  border-color: #1d4ed8;
+}
+
+/*pagrindine blokeliu isvaizda ir sekciju tarpu keitimas*/
+
+/* cia suvienodinam tarpus apie, reziume ir kitom sekcijom */
+#about.section,
+#resume.section,
+#portfolio.section {
+  padding-top: 80px;
+  padding-bottom: 80px;
+  background-color: var(--dj-bg-light);
+}
+
+/*sekciju teksto stiliaus pakeitimas*/
+.section-title h2 {
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 1rem;
+  color: var(--dj-accent);
+}
+
+.section-title p {
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+  color: var(--dj-text-muted);
+}
+
+/*about rezume ir portfolio stilius*/
+.about .about-content,
+.resume .resume-block,
+.portfolio .portfolio-card {
+  background-color: var(--dj-bg-card);
+  border-radius: 18px;
+  border: 1px solid var(--dj-border-soft);
+  padding: 24px 24px;
+  box-shadow: var(--dj-shadow-soft);
+}
+
+.about .about-content {
+  margin-top: 20px;
+}
+
+.resume .timeline-item + .timeline-item {
+  margin-top: 18px;
+}
+
+.portfolio .portfolio-card {
+  overflow: hidden;
+}
+
+.portfolio .portfolio-image img {
+  transition: transform 0.35s ease;
+}
+
+.portfolio .portfolio-card:hover .portfolio-image img {
+  transform: scale(1.05);
+}
+
+/*4. PAPILDOMŲ KOMPONENTŲ STILIAI (NAVBAR IR SCROLL-TOP)*/
+
+/* navigacijos juosta */
+.header {
+  background-color: rgba(15, 23, 42, 0.96);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(14px);
+}
+
+.header .logo a {
+  font-family: "DM Sans", system-ui, sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.navmenu a,
+.navbar a {
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  color: #e5e7eb;
+}
+
+.navmenu a:hover,
+.navmenu a.active,
+.navbar a:hover,
+.navbar a.active {
+  color: var(--dj-accent);
+}
+
+/* mygtukas scroll to top */
+.scroll-top,
+.back-to-top {
+  background: var(--dj-primary);
+  color: #ffffff;
+  border-radius: 999px;
+  box-shadow: 0 18px 40px rgba(37, 99, 235, 0.6);
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+}
+
+.scroll-top:hover,
+.back-to-top:hover {
+  background: #1d4ed8;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.scroll-top:active,
+.back-to-top:active {
+  background: #1e40af;
+  transform: translateY(0);
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.5);
+}
+
+/*uzdedam kontrasta*/
+
+.services,
+.resume,
+.about,
+.portfolio {
+  color: var(--dj-text-main);
+}
+
+.services .service-item p,
+.resume p,
+.about p,
+.portfolio p {
+  color: var(--dj-text-muted);
+}
+
+.services .service-item h3 {
+  color: var(--dj-text-main);
+}
+
+/*padarom kad tekstas ant tamsiu fonu butu baltas*/
+.header,
+.header a,
+footer {
+  color: #e5e7eb;
+}
+
+footer a {
+  color: #e5e7eb;
+}
+
+footer a:hover {
+  color: #ffffff;
+}
+
+/* PAPILDOMA UZDUOTIS */
+
+/*numeruotas sarasas su skaitikliais*/
+.steps-list {
+  counter-reset: step-counter;
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+.steps-list li {
+  counter-increment: step-counter;
+  position: relative;
+  padding-left: 3rem;
+  margin-bottom: 0.6rem;
+}
+
+.steps-list li::before {
+  content: counter(step-counter) ".";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-weight: 700;
+  color: var(--dj-primary);
+}
+
+/*nenumeruotas sarasas*/
+.skills-list {
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+.skills-list > li {
+  position: relative;
+  padding-left: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.skills-list > li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55rem;
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 999px;
+  background: var(--dj-accent);
+  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.25);
+}
+
+/*idetas nested sarasas*/
+.skills-list ul {
+  list-style: none;
+  margin-top: 0.3rem;
+  padding-left: 1.6rem;
+}
+
+.skills-list ul li {
+  position: relative;
+  margin-bottom: 0.25rem;
+}
+
+.skills-list ul li::before {
+  content: "•";
+  position: absolute;
+  left: -1.1rem;
+  color: var(--dj-primary);
+  font-size: 0.85rem;
+}
+
+/*paslaugu lenteles stiliai*/
+.services-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--dj-shadow-soft);
+}
+
+.services-table th,
+.services-table td {
+  padding: 0.9rem 1.2rem;
+  text-align: center;
+  vertical-align: middle;
+  border-bottom: 1px solid var(--dj-border-soft);
+}
+
+.services-table thead th {
+  background: var(--dj-primary);
+  color: #ffffff;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+}
+
+.services-table tbody tr:nth-child(even) {
+  background-color: var(--dj-bg-light);
+}
+
+.services-table tbody tr:hover {
+  background-color: var(--dj-primary-soft);
+}
+
+@media (max-width: 768px) {
+  .services-table th,
+  .services-table td {
+    padding: 0.7rem 0.6rem;
+    font-size: 0.85rem;
+  }
+}
