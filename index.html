@@ -39,6 +39,15 @@
 </head>
 
 <body class="index-page">
+  <!-- page preloader start -->
+  <div class="preloader">
+    <div class="preloader-inner">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+  <!-- page preloader end -->
 
   <header id="header" class="header d-flex align-items-center sticky-top">
     <div class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
@@ -811,6 +820,77 @@
 
     </section><!-- /Services Section -->
 
+    <!-- Game Section (LD12) -->
+    <section id="game" class="game section light-background">
+
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Atminties žaidimas</h2>
+        <div class="title-shape">
+          <svg viewBox="0 0 200 20" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 0,10 C 40,0 60,20 100,10 C 140,0 160,20 200,10" fill="none" stroke="currentColor" stroke-width="2"></path>
+          </svg>
+        </div>
+        <p>12 laboratorinio darbo užduotis – atminties kortelių žaidimas su skirtingais sunkumo lygiais, statistika ir geriausių rezultatų išsaugojimu.</p>
+      </div>
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row g-4 align-items-stretch">
+
+          <!-- Kairė pusė – nustatymai ir statistika -->
+          <div class="col-lg-4">
+            <div class="game-panel card h-100">
+              <div class="card-body">
+                <h3 class="h5 mb-3">Žaidimo nustatymai</h3>
+
+                <div class="mb-3">
+                  <label for="game-difficulty" class="form-label">Sunkumo lygis</label>
+                  <select id="game-difficulty" class="form-select">
+                    <option value="easy">Lengvas (4×3)</option>
+                    <option value="hard">Sunkus (6×4)</option>
+                  </select>
+                </div>
+
+                <div class="d-flex gap-2 mb-4">
+                  <button id="game-start" class="btn btn-primary w-50">Start</button>
+                  <button id="game-reset" class="btn btn-outline-secondary w-50">Atnaujinti</button>
+                </div>
+
+                <h3 class="h5 mb-3">Statistika</h3>
+                <ul class="list-unstyled mb-3 small">
+                  <li>Eimai: <strong><span id="game-moves">0</span></strong></li>
+                  <li>Poros: <strong><span id="game-matches">0</span></strong></li>
+                  <li>Laikas: <strong><span id="game-timer">0</span> s</strong></li>
+                </ul>
+
+                <h3 class="h6 mb-2">Geriausi rezultatai (papildoma užduotis)</h3>
+                <ul class="list-unstyled small mb-0">
+                  <li>Lengvas: <strong><span id="best-easy">-</span></strong> eimai</li>
+                  <li>Sunkus: <strong><span id="best-hard">-</span></strong> eimai</li>
+                </ul>
+
+                <p id="game-message" class="mt-3 mb-0 fw-semibold text-success"></p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dešinė pusė – žaidimo lenta -->
+          <div class="col-lg-8">
+            <div class="game-board-wrapper card h-100">
+              <div class="card-body">
+                <h3 class="h5 mb-3">Kortelių lenta</h3>
+                <p class="small text-muted mb-3">
+                  Spauskite ant kortelių, kad atskleistumėte simbolius ir surastumėte visas poras kuo mažesniu ėjimų skaičiumi.
+                </p>
+                <div id="game-board" class="game-board"></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
     <!-- Faq Section -->
     <section id="faq" class="faq section">
 
@@ -931,35 +1011,77 @@
             <div class="contact-form card" data-aos="fade-up" data-aos-delay="300">
               <div class="card-body p-4 p-lg-5">
 
-                <form action="forms/contact.php" method="post" class="php-email-form">
-                  <div class="row gy-4">
+                <form id="contact-form" class="contact-form-js">
+  <div class="row gy-4">
 
-                    <div class="col-12">
-                      <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
-                    </div>
+    <!-- Vardas -->
+    <div class="col-12">
+      <label for="firstName" class="form-label">Vardas</label>
+      <input type="text" id="firstName" name="firstName" class="form-control" placeholder="Jusu vardas" required>
+      <div class="field-error" data-error-for="firstName"></div>
+    </div>
 
-                    <div class="col-12 ">
-                      <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
-                    </div>
+    <!-- Pavarde -->
+    <div class="col-12">
+      <label for="lastName" class="form-label">Pavarde</label>
+      <input type="text" id="lastName" name="lastName" class="form-control" placeholder="Jusu pavarde" required>
+      <div class="field-error" data-error-for="lastName"></div>
+    </div>
 
-                    <div class="col-12">
-                      <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
-                    </div>
+    <!-- El. pastas -->
+    <div class="col-12">
+      <label for="email" class="form-label">El. pastas</label>
+      <input type="email" id="email" name="email" class="form-control" placeholder="vardas.pavarde@example.com" required>
+      <div class="field-error" data-error-for="email"></div>
+    </div>
 
-                    <div class="col-12">
-                      <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
-                    </div>
+    <!-- Telefonas -->
+    <div class="col-12">
+      <label for="phone" class="form-label">Telefono numeris</label>
+      <input type="tel" id="phone" name="phone" class="form-control" placeholder="+370 6xx xxxxx" required>
+      <div class="field-error" data-error-for="phone"></div>
+    </div>
 
-                    <div class="col-12 text-center">
-                      <div class="loading">Loading</div>
-                      <div class="error-message"></div>
-                      <div class="sent-message">Your message has been sent. Thank you!</div>
+    <!-- Adresas -->
+    <div class="col-12">
+      <label for="address" class="form-label">Adresas</label>
+      <input type="text" id="address" name="address" class="form-control" placeholder="Gatve, namo nr., miestas" required>
+      <div class="field-error" data-error-for="address"></div>
+    </div>
 
-                      <button type="submit" class="btn btn-submit w-100">Submit Message</button>
-                    </div>
+    <!-- Klausimas 1 -->
+    <div class="col-12">
+      <label for="q1" class="form-label">Kaip ivertintumete mokymo kokybe (1-10)?</label>
+      <input type="number" id="q1" name="q1" class="form-control" min="1" max="10" required>
+      <div class="field-error" data-error-for="q1"></div>
+    </div>
 
-                  </div>
-                </form>
+    <!-- Klausimas 2 -->
+    <div class="col-12">
+      <label for="q2" class="form-label">Kaip ivertintumete komunikacija (1-10)?</label>
+      <input type="number" id="q2" name="q2" class="form-control" min="1" max="10" required>
+      <div class="field-error" data-error-for="q2"></div>
+    </div>
+
+    <!-- Klausimas 3 -->
+    <div class="col-12">
+      <label for="q3" class="form-label">Kaip ivertintumete bendra pasitenkinima (1-10)?</label>
+      <input type="number" id="q3" name="q3" class="form-control" min="1" max="10" required>
+      <div class="field-error" data-error-for="q3"></div>
+    </div>
+
+    <!-- Submit -->
+    <div class="col-12 text-center">
+      <button type="submit" id="contact-submit" class="btn btn-submit w-100" disabled>
+        Pateikti duomenis
+      </button>
+    </div>
+
+  </div>
+</form>
+
+<!-- vieta rezultatams -->
+<div id="contact-results" class="contact-results mt-4"></div>
 
               </div>
             </div>
@@ -1011,6 +1133,8 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+  <!-- Custom JS File -->
+  <script src="assets/js/custom.js"></script>
 
 </body>
 
